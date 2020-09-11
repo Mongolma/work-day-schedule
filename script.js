@@ -25,9 +25,17 @@ $("#currentDay").text(currentDay);
 
 // var colorOfTime = [];
 
-function currentTimeByColor() {
-  //   var activateCurrentTime = $(".present");
-  if (moment.isMoment(moment())) {
-    $(".description").change($(".present"));
-  }
+function hourTracker() {
+  //get current number of hours
+  var currentHour = moment().format("H");
+
+  //loop over time blocks
+  $(".hour").each(function () {
+    var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+    console.log(blockHour, currentHour);
+  });
+
+  //   if (moment.isMoment(moment())) {
+  //     $(".description").change($(".present"));
+  //   }
 }
