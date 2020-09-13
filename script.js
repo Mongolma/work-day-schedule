@@ -1,24 +1,24 @@
 var dayPlanner = JSON.parse(localStorage.getItem("dayPlanner")) || {};
+var localStorageObj = localStorage.getItem("dayPlanner");
+
 var test = false;
 $(".saveBtn").on("click", function (e) {
   var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
-  // if (test) {
-  //   console.log(storedPlans);
-  // }
-
-  if (storedPlans !== null) {
-    planTextArr = storedPlans;
-  } else {
-    //this should only occur on first time the app is loaded in the browser
-    planTextArr = new Array(9);
-    planTextArr[4] = "Exercise";
+  if (test) {
+    console.log(storedPlans);
   }
+
+  // if (storedPlans !== null) {
+  //   planTextArr = storedPlans;
+  // } else {
+  //   //this should only occur on first time the app is loaded in the browser
+  //   planTextArr = new Array(9);
+  //   planTextArr[4] = "Exercise";
+  // }
 
   // if (test) {
   //   console.log("full array of plned text", planTextArr);
   // }
-
-  $(task).val(planTextArr[]);
 
   var id = $(this).attr("id");
   var task = $(this).siblings(".description").children("textarea").val();
