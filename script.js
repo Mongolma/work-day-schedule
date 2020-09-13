@@ -61,9 +61,12 @@ $(document).ready(function () {
         $(this).addClass("future");
       }
     });
+
+var populateDesc={9:[], }
+
+    $("#09").val(localStorage.getItem("9am"));
+    $(task).val(localStorage.setItem("id"));
   }
 
-  $("#09").val(localStorage.getItem("9am"));
-  // $(task).val(localStorage.setItem("id"));
   hourTracker();
 });
