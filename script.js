@@ -1,22 +1,27 @@
-//get date and time from moment.js
-//loop for 9-5 template (function)
-//description function
-//savebtn event listener to save coming task || clear it out ||make some changes
-//display time
-//display current time by color
-//display past event by color
-//display coming event by color
-//
-
 var dayPlanner = JSON.parse(localStorage.getItem("dayPlanner")) || {};
-
+var test = false;
 $(".saveBtn").on("click", function (e) {
+  var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
+  if (test) {
+    console.log(storedPlans);
+  }
+
+  if (storedPlans !== null) {
+    planTextArr = storedPlans;
+  } else {
+    //this should only occur on first time the app is loaded in the browser
+    planTextArr = new Array(9);
+    planTextArr[4] = "Exercise";
+  }
+
+  if (test) {
+    console.log("full array of plned text" + planTextArr);
+  }
+
   var id = $(this).attr("id");
   var task = $(this).siblings(".description").children("textarea").val();
   console.log(task);
-
   dayPlanner[id] = task;
-
   localStorage.setItem("dayPlanner", JSON.stringify(dayPlanner));
 });
 
@@ -30,12 +35,26 @@ function hourTracker() {
   var currentHour = moment().format("H");
 
   //loop over time blocks
-  $(".hour").each(function () {
-    var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+  $(".description").each(function () {
+    var blockHour = $(this).attr("id");
+    // console.log("Here is $(this.attr('id'): ", $(this).attr("id"));
+    // console.log("blockHour: ", blockHour);
+    // console.log("currentHour", currentHour);
     console.log(blockHour, currentHour);
-  });
 
-  //   if (moment.isMoment(moment())) {
-  //     $(".description").change($(".present"));
-  //   }
+    if (blockHour < currentHour) {
+      $(this).addClass("past");
+      $(this).removeClass("future");
+      $(this).removeClass("present");
+    } else if (blockHour === currentHour) {
+      $(this).removeClass("past");
+      $(this).addClass("present");
+      $(this).removeClass("future");
+    } else {
+      $(this).removeClass("present");
+      $(this).removeClass("past");
+      $(this).addClass("future");
+    }
+  });
 }
+hourTracker();
