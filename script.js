@@ -2,9 +2,9 @@ var dayPlanner = JSON.parse(localStorage.getItem("dayPlanner")) || {};
 var test = false;
 $(".saveBtn").on("click", function (e) {
   var storedPlans = JSON.parse(localStorage.getItem("storedPlans"));
-  if (test) {
-    console.log(storedPlans);
-  }
+  // if (test) {
+  //   console.log(storedPlans);
+  // }
 
   if (storedPlans !== null) {
     planTextArr = storedPlans;
@@ -14,13 +14,17 @@ $(".saveBtn").on("click", function (e) {
     planTextArr[4] = "Exercise";
   }
 
-  if (test) {
-    console.log("full array of plned text" + planTextArr);
-  }
+  // if (test) {
+  //   console.log("full array of plned text", planTextArr);
+  // }
+
+  $task.val(planTextArr[]);
 
   var id = $(this).attr("id");
   var task = $(this).siblings(".description").children("textarea").val();
-  console.log(task);
+  if (test) {
+    console.log(task);
+  }
   dayPlanner[id] = task;
   localStorage.setItem("dayPlanner", JSON.stringify(dayPlanner));
 });
