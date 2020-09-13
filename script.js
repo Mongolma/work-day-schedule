@@ -18,13 +18,14 @@ $(".saveBtn").on("click", function (e) {
   //   console.log("full array of plned text", planTextArr);
   // }
 
-  $task.val(planTextArr[]);
+  $(task).val(planTextArr[]);
 
   var id = $(this).attr("id");
   var task = $(this).siblings(".description").children("textarea").val();
-  if (test) {
-    console.log(task);
-  }
+
+  // if (test) {
+  //   console.log(task);
+  // }
   dayPlanner[id] = task;
   localStorage.setItem("dayPlanner", JSON.stringify(dayPlanner));
 });
