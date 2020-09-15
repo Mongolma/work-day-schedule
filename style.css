@@ -71,3 +71,8 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+.card-footer {
+  text-align: center;
+  padding: 2rem;
+  margin: 2rem;
+}
