@@ -4,4 +4,8 @@ This is a simple calendar application that allows the user to save events for ea
 
 I used [Moment.js](https://momentjs.com/) library to work with date and time.
 
-- The URL of the deployed application:  
+- The URL of the deployed application:  https://mongolma.github.io/work-day-schedule/
+- The URL of the GitHub repository: https://github.com/Mongolma/work-day-schedule
+
+##SCREENSHOT
+![](img/imgOfWDS.jpeg)
